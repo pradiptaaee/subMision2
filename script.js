@@ -181,26 +181,34 @@ function renderNewBooks() {
 }
 
 function createDeleteButton(bookId) {
+    const deleteButtonContainer = document.createElement('div');
+    deleteButtonContainer.classList.add('delete-button-container');
+
+    const text = document.createElement('p');
+    text.textContent = 'Apakah Anda yakin ingin menghapus buku ini?';
+    deleteButtonContainer.appendChild(text);
+
+    const cancelDeleteButton = document.createElement('button');
+    cancelDeleteButton.textContent = 'Batal';
+    cancelDeleteButton.addEventListener('click', function () {
+        deleteButtonContainer.remove();
+    });
+    deleteButtonContainer.appendChild(cancelDeleteButton);
+
+    const confirmDeleteButton = document.createElement('button');
+    confirmDeleteButton.textContent = 'Ya';
+    confirmDeleteButton.addEventListener('click', function () {
+        deleteBookById(bookId);
+        document.dispatchEvent(new Event(SAVED_EVENT));
+        renderNewBooks();
+        deleteButtonContainer.remove();
+    });
+    deleteButtonContainer.appendChild(confirmDeleteButton);
+
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
-
     deleteButton.addEventListener('click', function () {
-        const confirmationDialog = document.getElementById('confirmationDialog');
-        confirmationDialog.style.display = 'block';
-
-        const confirmDeleteButton = document.getElementById('confirmDeleteButton');
-        const cancelDeleteButton = document.getElementById('cancelDeleteButton');
-
-        confirmDeleteButton.addEventListener('click', function () {
-            deleteBookById(bookId);
-            document.dispatchEvent(new Event(SAVED_EVENT));
-            renderNewBooks();
-            confirmationDialog.style.display = 'none';
-        });
-
-        cancelDeleteButton.addEventListener('click', function () {
-            confirmationDialog.style.display = 'none';
-        });
+        document.getElementById('confirmationDialog').appendChild(deleteButtonContainer);
     });
 
     return deleteButton;
