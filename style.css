@@ -27,7 +27,7 @@ body {
 
 header {
     width: 100%;
-    position: fixed;
+    position: relative;
     background: #c1fff6;
     display: flex;
     flex-wrap: wrap;
