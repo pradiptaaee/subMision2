@@ -26,6 +26,7 @@ searchInput.insertAdjacentElement('afterend', searchButton);
 
 searchInput.addEventListener('click', function () {
     searchButton.style.display = 'block';
+    document.querySelector('.search').style.padding='8px';
 });
 
 searchButton.addEventListener('click', function () {
@@ -99,7 +100,7 @@ function loadDataFromStorage() {
 function addNewBook() {
     const title = document.getElementById('title').value;
     const penulis = document.getElementById('penulis').value;
-    const year = document.getElementById('year').value;
+    const year = parseInt(document.getElementById('year').value);
     const isComplete = false;
 
 
@@ -190,6 +191,7 @@ function createDeleteButton(bookId) {
 
     const cancelDeleteButton = document.createElement('button');
     cancelDeleteButton.textContent = 'Batal';
+    cancelDeleteButton.classList.add('batal-button');
     cancelDeleteButton.addEventListener('click', function () {
         deleteButtonContainer.remove();
     });
@@ -197,6 +199,7 @@ function createDeleteButton(bookId) {
 
     const confirmDeleteButton = document.createElement('button');
     confirmDeleteButton.textContent = 'Ya';
+    confirmDeleteButton.classList.add('ya-button');
     confirmDeleteButton.addEventListener('click', function () {
         deleteBookById(bookId);
         document.dispatchEvent(new Event(SAVED_EVENT));
@@ -208,7 +211,9 @@ function createDeleteButton(bookId) {
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
     deleteButton.addEventListener('click', function () {
+        console.log('tess');
         document.getElementById('confirmationDialog').appendChild(deleteButtonContainer);
+        document.getElementById('confirmationDialog').style.display='block';
     });
 
     return deleteButton;
@@ -241,7 +246,5 @@ function notifikasihidden(book) {
         notifbox.style.display = 'none';
     });
 }
-
-
 
 
