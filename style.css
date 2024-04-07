@@ -44,7 +44,7 @@ header {
 .search {
     background: #ffffff;
     border-radius: 20px;
-    padding: 10px 15px;
+    padding: 12px 15px;
     cursor: pointer;
     display: flex;
     gap: 3px;
@@ -53,7 +53,7 @@ header {
 
 }
 
-.search img{
+.search img {
     width: 20px;
     height: 20px;
     margin-right: 4px;
@@ -65,6 +65,14 @@ header {
     width: 400px;
     font-size: 15px;
 
+}
+
+.search-button {
+
+    background: #bdfdf3;
+    padding: 6px;
+    border: none;
+    border-radius: 10px;
 }
 
 .login {
@@ -251,7 +259,8 @@ header {
     background-size: contain;
 }
 
-#confirmDeleteButton, #cancelDeleteButton{
+.ya-button,
+.batal-button {
     border: 2px solid #bdfdf3;
     padding: 6px;
     border-radius: 10px;
@@ -259,8 +268,8 @@ header {
     background: #fff;
 }
 
-#confirmDeleteButton:hover,
-#cancelDeleteButton:hover{
+.ya-button:hover,
+.batal-button:hover {
     background: #f5f5f5;
 }
 
@@ -273,7 +282,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    
+
 }
 
 .notifikasihidden {
@@ -291,19 +300,24 @@ header {
     border-radius: 15px;
 }
 
-.okeybutton{
+.okeybutton {
     background: #bdfdf3;
     border: none;
     width: 100px;
-    padding:8px 10px;
+    padding: 8px 10px;
     margin-top: 17px;
     border-radius: 18px;
     align-self: center;
     margin: 10px auto;
-    
+
 }
 
-.dialog {
+#confirmationDialog {
+    display: none;
+    position: absolute;
+}
+
+.delete-button-container {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -313,32 +327,18 @@ header {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    display: none;
+
     border-radius: 15px;
 }
 
-.dialog p {
+.delete-button-container p {
     margin-bottom: 20px;
 }
 
-.dialog button {
+.delete-button-container button {
     margin-right: 10px;
 }
 
-.editButton {
-    width: 20px;
-    height: 20px;
-    background: url('asset/icons8-edit.svg');
-    background-size: contain;
-    margin-right: 5px;
-    cursor: pointer;
-    border: none;
-}
-
-.editButton:hover {
-    background: url('asset/icons8-edit\ \(1\).svg ');
-    background-size: contain;
-}
 
 /* desktop */
 @media(max-width: 1024px) {}
@@ -384,7 +384,7 @@ header {
     }
 
     .wrapper {
-        padding-top: 40%;
+        padding-top: 10px;
         grid-template-columns: 1fr;
     }
 
@@ -398,6 +398,12 @@ header {
         margin-top: 0;
         width: 40px;
         height: 40px;
+    }
+
+    .btn-form {
+        padding: 5px;
+        font-size: 11px;
+        margin-top: 8px;
     }
 
     .container h2 {
@@ -442,5 +448,36 @@ header {
 
     .undo-button {
         font-size: 8px;
+    }
+
+    .notifikasihidden {
+        width: 200px;
+        height: 250px;
+    }
+
+    .notifikasihidden h2 {
+        font-size: 18px;
+    }
+
+    .delete-button-container {
+        width: 200px;
+        height: 250px;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    .delete-button-container p {
+        font-size: 18px;
+        font-weight: 400;
+        color: #666;
+    }
+
+    #confirmDeleteButton {
+        margin-bottom: 20px;
+    }
+
+    .dialog button {
+        margin: 0 10px;
+        margin-top: 8px;
     }
 }
