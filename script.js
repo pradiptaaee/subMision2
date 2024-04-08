@@ -107,7 +107,7 @@ function addNewBook() {
     const newBookObject = {
         id: generateId(),
         title,
-        penulis,
+        author,
         year,
         isComplete
     };
