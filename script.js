@@ -99,7 +99,7 @@ function loadDataFromStorage() {
 
 function addNewBook() {
     const title = document.getElementById('title').value;
-    const penulis = document.getElementById('penulis').value;
+    const author = document.getElementById('penulis').value;
     const year = parseInt(document.getElementById('year').value);
     const isComplete = false;
 
