@@ -141,7 +141,7 @@ header {
     margin: 4px 4px;
 }
 
-.checkbutton {
+.checkbox {
     display: flex;
     font-size: 12px;
     color: #484848;
