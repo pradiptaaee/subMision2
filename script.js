@@ -1,15 +1,23 @@
 const addbutton = document.querySelector('.addbutton');
 addbutton.addEventListener('click', function () {
-    console.log('tedgvcsc');
     document.getElementById('form').style.display = 'grid';
     addbutton.style.display = 'none';
-
 });
 
 document.querySelector('.btn-form').addEventListener('click', function () {
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('penulis').value;
+    const year = parseInt(document.getElementById('year').value);
+    const isComplete = document.getElementById('alreadyRead').checked;
+
+    addNewBook(title, author, year, isComplete);
+
     document.getElementById('form').style.display = 'none';
     addbutton.style.display = 'grid';
-})
+
+    document.getElementById('alreadyRead').checked = false;
+
+});
 
 document.querySelector('.login').addEventListener('click', function () {
     alert('fitur login: belum ada;😁');
@@ -97,13 +105,7 @@ function loadDataFromStorage() {
     renderNewBooks();
 }
 
-function addNewBook() {
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('penulis').value;
-    const year = parseInt(document.getElementById('year').value);
-    const isComplete = false;
-
-
+function addNewBook(title, author, year, isComplete) {
     const newBookObject = {
         id: generateId(),
         title,
@@ -111,7 +113,6 @@ function addNewBook() {
         year,
         isComplete
     };
-
 
     newBooks.push(newBookObject);
 
@@ -246,5 +247,7 @@ function notifikasihidden(book) {
         notifbox.style.display = 'none';
     });
 }
+
+
 
 
