@@ -144,7 +144,7 @@ function renderNewBooks() {
         const titleHeading = document.createElement('h2');
         titleHeading.textContent = book.title;
         const penulisPara = document.createElement('p');
-        penulisPara.textContent = `Penulis: ${book.penulis}`;
+        penulisPara.textContent = `Penulis: ${book.author}`;
         const tahunPara = document.createElement('p');
         tahunPara.textContent = `Tahun: ${book.year}`;
 
